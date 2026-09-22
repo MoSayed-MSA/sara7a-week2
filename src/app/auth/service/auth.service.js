@@ -4,7 +4,7 @@ import { timeToMS } from "../../../common/utils/time.js";
 import { sendEmail } from "../../../common/email/email.js";
 import { generate0TPCode } from "../../../common/utils/otps.js";
 import { appError } from "../../../common/utils/error.js";
-import { userExist, userNotSignUp, userVerified } from "../../user/utils/error.js";
+import { userExist, userNotExist, userNotSignUp, userVerified } from "../../user/utils/error.js";
 import { generateToken } from "../../../common/security/jwt.js";
 import { comparePassword, hashPassword } from "../../../common/security/bcrypt.js";
 
@@ -100,7 +100,7 @@ export async function login(email, password) {
 export async function send0tp(email) {
     // 1. check user existence
     const user = await authRepo.findUserByEmail(email);// {} | null
-    if (!user) throw new appError('user is not exist', 404);
+    if (!user) throw new userNotExist
 
     // delete old OTPs
     await otpRepo.deleteOTP(email)
