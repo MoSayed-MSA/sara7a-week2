@@ -15,3 +15,10 @@ export async function updateUserStatus(email, isVerified) {
         { new: true }
     );
 }
+
+export async function updateUserByEmail(email, updateData) {
+    return User.findOneAndUpdate(
+        { email },
+        { $set: updateData },
+    );
+}

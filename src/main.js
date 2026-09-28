@@ -27,7 +27,9 @@ app.use((err, req, res, next) => {
 
     return res.status(500).json({
         status: "error",
-        message: "Something went wrong on our end",
+        message: `Something went wrong on our end`,
+        errorMessage: err.message,
+        stack: err.stack
     });
 });
 
