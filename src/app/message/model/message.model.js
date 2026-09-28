@@ -1,5 +1,5 @@
 // schema
-import {model, Schema} from "mongoose";
+import { model, Schema } from "mongoose";
 
 const messageSchema = new Schema(
     {
@@ -8,7 +8,7 @@ const messageSchema = new Schema(
             required: true,
             minlength: 1,
             maxlength: 200,
-            trim: true, 
+            trim: true,
         },
         receiver: {
             type: Schema.Types.ObjectId,
@@ -25,7 +25,9 @@ const messageSchema = new Schema(
         }
     },
     {
-        timestamps: true
+        timestamps: true,
+        strict: true
+
     }
 )
 // model

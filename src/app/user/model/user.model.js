@@ -40,7 +40,9 @@ const userSchema = new Schema(
         }
     },
     {
-        timestamps: true// set createdAt and updatedAt
+        timestamps: true,
+        strict: true
+
     }
 );
 

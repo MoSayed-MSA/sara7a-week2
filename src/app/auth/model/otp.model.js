@@ -21,6 +21,7 @@ const otpSchema = new Schema(
     },
     {
         timestamps: true,
+        strict :true
     }
 )
 // model
